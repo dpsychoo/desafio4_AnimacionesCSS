@@ -1,0 +1,783 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+/* ---- Distribución ---- */
+body {
+  text-align: center;
+  color: white;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 2fr 10fr 1fr;
+  grid-template-areas:
+    "nav"
+    "aside"
+    "main"
+    "footer";
+}
+
+.navbar-hsLogo img{
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    padding: 5px 0px 0px 0px;
+}
+
+
+.card img{
+    width: 200px;
+    height: 275px;
+}
+
+.card p{
+    color: black;
+}
+
+.buttonVer {
+    background-color: #2d8f2d;
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.pagination {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.page-link {
+    color: #005c14;
+    background-color: #ffffff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+}
+
+main {
+    background-color: #dacce2;
+}
+
+.page-link:hover {
+    background-color: #033003;
+    color: #fff;
+}
+
+/* ---- Componentes ---- */
+
+nav {
+  grid-area: nav;
+  background: #6d5d00;
+}
+
+main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: aside;
+  background-color: #e1e2e1;
+  color: black;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #491010;
+}
+
+
+nav ul {
+    list-style-type: none;
+  }
+
+/* Estilos para la barra lateral */
+.sidebar {
+    padding: 10px;
+    background-color: #ac9bd4;
+}
+
+.ordenarPor {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.select-container {
+    position: relative;
+}
+
+/* Estilos para el select */
+.select-container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #dad8ce;
+    padding: 8px 30px 8px 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.select-container::before {
+    content: "\25BC";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.card {
+  box-shadow: 1px 1px 5px 1px #e1e2e1;
+  padding: 15px;
+  margin-top: 15px;
+}
+  
+.cartas {
+    overflow-y: scroll;
+    height: 65vh;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 15px;
+    background-color: #dacce2;
+}
+
+
+  
+.icon-rrss img{
+      width: 24px;
+      height: 24px;
+      margin-top: 10px;
+}
+
+
+
+/* ---- Medias ---- */
+
+
+@media screen and (min-width: 576px) {
+  body {
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 1fr 10fr 1fr;
+    grid-template-areas:
+      "nav nav"
+      "aside main"
+      "footer footer";
+  }
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    grid-template-columns: 15% 85%;
+    grid-template-areas:
+      "nav aside"
+      "nav main"
+      "footer main";
+  }
+}
+
+@media screen and (min-width: 992px) {}
+
+  .btn {
+    display: none;
+  }
+  
+  @media screen and (max-width: 575px) {
+    .btn {
+      display: inline-block;
+      background-color: #01579b;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+@media screen and (min-width: 576px) {
+  .cartas {
+    height: 70vh;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .cartas {
+    height: 75vh;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  nav ul li {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+    .navbar-nav {
+        display: none;
+    }
+
+    .navbar-nav.active {
+        display: block;
+    }
+
+    .navbar-hamburguesa {
+        display: block;
+    }
+}
+
+
+/* Estilos para el botón de hamburguesa */
+.navbar-hamburguesa {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Encima de otros elementos */
+}
+
+.navbar-icon {
+    display: block;
+    width: 60px;
+    height: 40px;
+    background-image: url('../img/menu-hamburguesa.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-indent: -9999px; /* Ocultamos el texto dentro del div */
+}
+
+/* Styles para Nav */
+.navbar-nav li {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.navbar-nav li:last-child {
+    border-bottom: none;
+}
+
+/* Styles para disp. pequeños */
+@media (max-width: 576px) {
+    .navbar-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav.active {
+        display: block;
+    }
+
+    .navbar-hamburguesa {
+        display: block;
+    }
+
+    body {
+        background-color: #dacce2;
+    }
+
+    /* Oculta los elementos del menú en dispositivos móviles */
+    .navbar-nav li {
+        display: none;
+    }
+
+    footer {
+        margin-top: 15px;
+    }
+}
+
+/* -- Pantalla Media Opcional --*/
+
+@media (min-width: 576px) and (max-width: 991px) {
+    .navbar-nav li {
+        flex-direction: row-reverse;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 991px) {
+    .navbar {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: flex-start; 
+        padding: 10px; 
+    }
+
+    .navbar-carLogo {
+        order: 1; 
+    }
+
+    .navbar-nav {
+        order: 2; 
+        display: flex; 
+        flex-direction: row; 
+        justify-content: flex-end; 
+    }
+
+    .navbar-nav li {
+        margin-left: 10px; 
+    }
+
+}
+
+/* ----- Animaciones ----- */
+
+/* Carta Mago */
+
+.card-text1{
+    animation: card1-bck 2s infinite;
+}
+
+@keyframes card1-bck {
+    0% {
+        background-color: #01579b;
+    }
+    25%{
+        background-color: #024c85;
+    }
+    50%{
+        background-color: #1181d6;
+    }
+    75%{
+        background-color: #3e8dc9;
+    }
+    100%{
+        background-color: #01579b;
+    }
+
+}
+
+
+.card-body1 p{
+    animation: card1-stats 2s infinite;
+}
+
+@keyframes card1-stats {
+    0% {
+        color: #01579b;
+    }
+    25%{
+        color: #00233d;
+    }
+    50%{
+        color: #1181d6;
+    }
+    75%{
+        color: #4db2ff;
+    }
+    100%{
+        color: #01579b;
+    }
+
+}
+
+/* Carta Mago FIN */
+
+
+/* Carta Druida */
+
+.card-text2{
+    animation: card2-bck 2s infinite;
+}
+
+@keyframes card2-bck {
+    0% {
+        background-color: #8f6008;
+    }
+    25%{
+        background-color: #6e4d06;
+    }
+    50%{
+        background-color: #b17b07;
+    }
+    75%{
+        background-color: #4d2f03;
+    }
+    100%{
+        background-color: #b67d02;
+    }
+
+}
+
+
+.card-body2 p{
+    animation: card2-stats 2s infinite;
+}
+
+@keyframes card2-stats {
+    0% {
+        color: #8f6008;
+    }
+    25%{
+        color: #6e4d06;
+    }
+    50%{
+        color: #b17b07;
+    }
+    75%{
+        color: #4d2f03;
+    }
+    100%{
+        color: #b67d02;
+    }
+
+}
+
+/* Carta Druida FIN */
+
+/* Carta Cazador */
+
+.card-text3{
+    animation: card3-bck 2s infinite;
+}
+
+@keyframes card3-bck {
+    0% {
+        background-color: #377723;
+    }
+    25%{
+        background-color: #318318;
+    }
+    50%{
+        background-color: #60ad48;
+    }
+    75%{
+        background-color: #26800b;
+    }
+    100%{
+        background-color: #3ba11c;
+    }
+
+}
+
+
+.card-body3 p{
+    animation: card3-stats 2s infinite;
+}
+
+@keyframes card3-stats {
+    0% {
+        color: #377723;
+    }
+    25%{
+        color: #318318;
+    }
+    50%{
+        color: #60ad48;
+    }
+    75%{
+        color: #26800b;
+    }
+    100%{
+        color: #3ba11c;
+    }
+
+}
+
+/* Carta Cazador FIN */
+
+/* Carta Caballero de la Muerte */
+
+.card-text4{
+    animation: card4-bck 2s infinite;
+}
+
+@keyframes card4-bck {
+    0% {
+        background-color: #0e0847;
+    }
+    25%{
+        background-color: #100764;
+    }
+    50%{
+        background-color: #0e0468;
+    }
+    75%{
+        background-color: #3527af;
+    }
+    100%{
+        background-color: #10047c;
+    }
+
+}
+
+
+.card-body4 p{
+    animation: card4-stats 2s infinite;
+}
+
+@keyframes card4-stats {
+    0% {
+        color: #0e0847;
+    }
+    25%{
+        color: #100764;
+    }
+    50%{
+        color: #0e0468;
+    }
+    75%{
+        color: #3527af;
+    }
+    100%{
+        color: #10047c;
+    }
+
+}
+
+/* Carta Caballero de la Muerte FIN */
+
+
+/* Carta Paladin */
+
+.card-text5{
+    animation: card5-bck 2s infinite;
+}
+
+@keyframes card5-bck {
+    0% {
+        background-color: #b8a500;
+    }
+    25%{
+        background-color: #d1bf1d;
+    }
+    50%{
+        background-color: #796d04;
+    }
+    75%{
+        background-color: #c7b408;
+    }
+    100%{
+        background-color: #918624;
+    }
+
+}
+
+
+.card-body5 p{
+    animation: card5-stats 2s infinite;
+}
+
+@keyframes card5-stats {
+    0% {
+        color: #b8a500;
+    }
+    25%{
+        color: #d1bf1d;
+    }
+    50%{
+        color: #796d04;
+    }
+    75%{
+        color: #c7b408;
+    }
+    100%{
+        color: #918624;
+    }
+
+}
+
+/* Carta Paladin FIN */
+
+/* Carta Sacerdote */
+
+.card-text6{
+    animation: card6-bck 2s infinite;
+}
+
+@keyframes card6-bck {
+    0% {
+        background-color: #5c5c59;
+    }
+    25%{
+        background-color: #8a8a87;
+    }
+    50%{
+        background-color: #2e2e2b;
+    }
+    75%{
+        background-color: #9c9c9c;
+    }
+    100%{
+        background-color: #2b2b2b;
+    }
+
+}
+
+
+.card-body6 p{
+    animation: card6-stats 2s infinite;
+}
+
+@keyframes card6-stats {
+    0% {
+        color: #5c5c59;
+    }
+    25%{
+        color: #8a8a87;
+    }
+    50%{
+        color: #2e2e2b;
+    }
+    75%{
+        color: #9c9c9c;
+    }
+    100%{
+        color: #2b2b2b;
+    }
+
+}
+
+/* Carta Sacerdote FIN */
+
+/* Carta Picaro */
+
+.card-text7{
+    animation: card7-bck 2s infinite;
+}
+
+@keyframes card7-bck {
+    0% {
+        background-color: #383838;
+    }
+    25%{
+        background-color: #131313;
+    }
+    50%{
+        background-color: #141414;
+    }
+    75%{
+        background-color: #474747;
+    }
+    100%{
+        background-color: #111111;
+    }
+
+}
+
+
+.card-body7 p{
+    animation: card7-stats 2s infinite;
+}
+
+@keyframes card7-stats {
+    0% {
+        color: #383838;
+    }
+    25%{
+        color: #131313;
+    }
+    50%{
+        color: #141414;
+    }
+    75%{
+        color: #474747;
+    }
+    100%{
+        color: #111111;
+    }
+
+}
+
+/* Carta Picaro FIN */
+
+/* Carta DH */
+
+.card-text8{
+    animation: card8-bck 2s infinite;
+}
+
+@keyframes card8-bck {
+    0% {
+        background-color: #206600;
+    }
+    25%{
+        background-color: #225e07;
+    }
+    50%{
+        background-color: #1c5800;
+    }
+    75%{
+        background-color: #3a791d;
+    }
+    100%{
+        background-color: #257400;
+    }
+
+}
+
+
+.card-body8 p{
+    animation: card8-stats 2s infinite;
+}
+
+@keyframes card8-stats {
+    0% {
+        color: #206600;
+    }
+    25%{
+        color: #225e07;
+    }
+    50%{
+        color: #1c5800;
+    }
+    75%{
+        color: #3a791d;
+    }
+    100%{
+        color: #257400;
+    }
+
+}
+
+/* Carta DH FIN */
+
+/* Cartas seleccionables */
+
+.card img {
+    margin-left: 15px;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.card img:hover {
+    transform: scale(1.5); 
+    filter: brightness(120%);
+}
+
+
+/* LOGO Volteable */
+
+.navbar-hsLogo img {
+    transition: transform 0.5s;
+}
+.navbar-hsLogo img:hover {
+    transform: rotateY(180deg);
+}
+
